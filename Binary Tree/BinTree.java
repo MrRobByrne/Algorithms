@@ -19,7 +19,7 @@ class BinTree {
 		else {
 			TNode temp = root;
 			while(temp != null) {   //continue search until null value is found for insert into
-				if(x<temp.getData()){	
+				if(x<temp.getData()){	//if x<temp
 					if(temp.getLeft() != null)
 						temp = temp.getLeft();
 					else {
@@ -27,7 +27,7 @@ class BinTree {
 						break;
 					}
 				}
-				else if(x>temp.getData()) {
+				else if(x>temp.getData()) {     //if x>temp
 					if(temp.getRight() != null)
 						temp = temp.getRight();
 					else {
