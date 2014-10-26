@@ -5,15 +5,20 @@ class BinTree {
 	public BinTree() {
 		root = null;
 	}
+    /**
+    insert: Searched through the tree and inserts the value in the 
+    appropriete value in the tree at the right spot.
+     Note: lower values to the lef and higher values to the right.
+     */
 	public void insert(int x) {
 		TNode n = new TNode();
 		n.setData(x);
-		if(root == null) {
+		if(root == null) {  //inserting first value
 			root = n;
 		}
 		else {
 			TNode temp = root;
-			while(temp != null) {
+			while(temp != null) {   //continue search until null value is found for insert into
 				if(x<temp.getData()){	
 					if(temp.getLeft() != null)
 						temp = temp.getLeft();
