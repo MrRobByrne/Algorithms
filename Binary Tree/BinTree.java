@@ -1,3 +1,14 @@
+/**
+ ____  __  __ _   __   ____  _  _    ____  ____  ____  ____ 
+(  _ \(  )(  ( \ / _\ (  _ \( \/ )  (_  _)(  _ \(  __)(  __)
+ ) _ ( )( /    //    \ )   / )  /     )(   )   / ) _)  ) _) 
+(____/(__)\_)__)\_/\_/(__\_)(__/     (__) (__\_)(____)(____)
+
+This file is a sorted Binary tree written with the ability to insert values into the proper place,
+as well as search for a particular value in the tree. It also has the ability to print the values
+of the tree in different orders.
+*/
+
 class BinTree {
 	private TNode root;
 	private int height, left, right;
