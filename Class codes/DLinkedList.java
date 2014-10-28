@@ -1,4 +1,4 @@
-/**
+/*
 DLInkedList is a doubly linked list that is connected to vlues on either side
 of each DNode (double link node). The list is also connected so that the head
 and tail ar Note: in this problem "head" is the right most
@@ -26,7 +26,7 @@ class DLinkedList {
     	tail = n;
     	size++;
     }
-    /**
+    /*
 	Remove(); removes the right most node (head) by using a temp node,
 	and then sets the temp node to
     */
@@ -47,7 +47,7 @@ class DLinkedList {
 			size--;
       	}
     }
-    /**
+    /*
 	Remove(int x): removes the value of x from the list if it is in the list.
 	Checks if size=0, size=1, x=head, x=tail, otherwise it sets the links of
 	prev and next node to connect to each other, essentially taking x from the
@@ -90,7 +90,7 @@ class DLinkedList {
 			}
     	}
     }
-    /**
+    /*
 	Print function: prints all the values in the DLinkedList from left to right
 		starting at the head (most left) and printing each consecutive node from
 		left to right until it reaches the value of tail (the right most value)
