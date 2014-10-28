@@ -7,6 +7,7 @@
 This file is a sorted Binary tree written with the ability to insert values into the proper place,
 as well as search for a particular value in the tree. It also has the ability to print the values
 of the tree in different orders.
+Note: TNode.java is required to be in the same folder as BinTree.java because it is used within it.
 */
 
 class BinTree {
@@ -19,7 +20,7 @@ class BinTree {
     /**
     insert: Searched through the tree and inserts the value in the 
     appropriete value in the tree at the right spot.
-     Note: lower values to the lef and higher values to the right.
+    Note: lower values to the lef and higher values to the right.
      */
 	public void insert(int x) {
 		TNode n = new TNode();
@@ -31,19 +32,19 @@ class BinTree {
 			TNode temp = root;
 			while(temp != null) {   //continue search until null value is found for insert into
 				if(x<temp.getData()){	//if x<temp
-					if(temp.getLeft() != null)
-						temp = temp.getLeft();
+					if(temp.getLeft() != null)		//left node is not empty
+						temp = temp.getLeft();		//set temp to this left node
 					else {
-						temp.setLeft(n);
-						break;
+						temp.setLeft(n);		//else set left node to n
+						break;		//break out of while loop
 					}
 				}
 				else if(x>temp.getData()) {     //if x>temp
-					if(temp.getRight() != null)
-						temp = temp.getRight();
+					if(temp.getRight() != null)		//right node is not empty
+						temp = temp.getRight();		//get next right node
 					else {
-						temp.setRight(n);
-						break;
+						temp.setRight(n);		//else set right node to n
+						break;		//break out of while loop
 					}
 				}
 				else {
