@@ -10,126 +10,206 @@ of the tree in different orders.
 Note: TNode.java is required to be in the same folder as BinTree.java because it is used within it.
 */
 
-class BinTree {
+class BinTree 
+{
 	private TNode root;
 	private int height, left, right;
 	
-	public BinTree() {
+	public BinTree() 
+	{
 		root = null;
 	}
-    /**
-    insert: Searched through the tree and inserts the value in the 
-    appropriete value in the tree at the right spot.
-    Note: lower values to the lef and higher values to the right.
-     */
-	public void insert(int x) {
+    /*
+    *  insert: Searched through the tree and inserts the value in the 
+    *  appropriete value in the tree at the right spot.
+    *  Note: lower values to the lef and higher values to the right.
+    */
+	public void insert(int x) 
+	{
 		TNode n = new TNode();
 		n.setData(x);
-		if(root == null) {  //inserting first value
+		
+		// empty binary tree condition
+		if(root == null)
+		{  
 			root = n;
 		}
-		else {
+		
+		else 
+		{
 			TNode temp = root;
-			while(temp != null) {   //continue search until null value is found for insert into
-				if(x<temp.getData()){	//if x<temp
-					if(temp.getLeft() != null)		//left node is not empty
-						temp = temp.getLeft();		//set temp to this left node
-					else {
-						temp.setLeft(n);		//else set left node to n
-						break;		//break out of while loop
-					}
-				}
-				else if(x>temp.getData()) {     //if x>temp
+
+			// continue until the correct position in the tree is found
+			// or a null value (tree edges) is found.
+			while(temp != null)	
+			{
+				// insert value less than temp
+				if(x<temp.getData())
+				{
+					// compare next left value to x
+					if(temp.getLeft() != null)
+					{
+						temp = temp.getLeft();
+					} // if
+					
+					// set value to left most poition (smallest value) in tree
+					else 
+					{
+						temp.setLeft(n);
+						break;
+					} // else
+				} //if
+
+				// insert value greater than temp
+				else if(x>temp.getData())
+				{
 					if(temp.getRight() != null)		//right node is not empty
+					{	
 						temp = temp.getRight();		//get next right node
-					else {
+					} // if
+					else 
+					{
 						temp.setRight(n);		//else set right node to n
 						break;		//break out of while loop
-					}
-				}
+					} // else
+				} // else if
 				else {
 					System.out.println("Error, number already in tree");
 					break;
-				}
-			}
-		}
+				} // else
+			} // while
+		} // else
 	}
-	public boolean search(int y) {
+	
+	// search() method seaarches for a certain value in the binary tree
+	// @Param int y, the input to be searched for
+	public boolean search(int y) 
+	{
 		TNode temp = root;
-		while(temp != null) {
+		
+		// search mechanics
+		while(temp != null) 
+		{
 			if(y == temp.getData())
+			{
 				break;
+			} // if
 			else if(y>temp.getData())
+			{
 				temp = temp.getRight();
+			} // else if
 			else
+			{
 				temp.getLeft();
-		}
+			} // else
+		} // while
+		
+		// return based on wether a null value was output from the above while loop
 		if(temp != null)
+		{
 			return true;
+		}
 		else
+		{
 			return false;
+		}
 	}
-	public int height() {
+
+	public int height() 
+	{
 		height = left = right = -1;
 		getHeight(root);
-		return height -1;
+		return height - 1;
 	}
-	public int getHeight(TNode t) {
+	
+	public int getHeight(TNode t) 
+	{
 		if(t == null)
 			return 0;
 		int heightLeft = getHeight(t.getLeft());
 		int heightRight = getHeight(t.getRight());
 
 		if(heightLeft > heightRight)
-			return heightLeft -1;
+		{
+			return heightLeft - 1;
+		}
 		else
-			return heightRight -1;
+		{
+			return heightRight - 1;
+		}
 	}
-	public int height(Bintree b) {
+	
+	public int height(BinTree b) 
+	{
 		if(b == null)
+		{
 			return -1;
+		}
 		else
-			return 1 + max(height(b.getLeft()), height(b.getRight());
+		{
+			return 1 + max(heightLeft, heightRight);
+		}
 	}
-	public int max(int x, int y) {
+	
+	public int max(int x, int y) 
+	{
 		if(x>y)
+		{
 			return x;
+		}
 		else
+		{
 			return y;
+		}
 	}
 
-	public void inorder(TNode t){
-		if(t!=null){
+	// print array in order
+	public void inorder(TNode t)
+	{
+		if(t!=null)
+		{
 			inorder(t.getLeft());
 			System.out.print(t.getData() +" ");
 			inorder(t.getRight());
 		}
 	}
-	public void preorder(TNode t){
-		if(t!=null){
+	
+	public void preorder(TNode t)
+	{
+		if(t!=null)
+		{
 			System.out.print(t.getData() +" ");
 			preorder(t.getLeft());
 			preorder(t.getRight());
 		}
 	}
-	public void postorder(TNode t){
-		if(t!=null){
+	
+	public void postorder(TNode t)
+	{
+		if(t!=null)
+		{
 			postorder(t.getLeft());
 			postorder(t.getRight());
 			System.out.print(t.getData() +" ");
 		}
 	}
-	public void showInorder(){
+	
+	public void showInorder()
+	{
 		System.out.print("Inorder: ");
 		inorder(root);
 		System.out.println();
 	}
-	public void showPreorder(){
+	
+	public void showPreorder()
+	{
 		System.out.print("Preorder: ");
 		preorder(root);
 		System.out.println();
 	}
-	public void showPostorder(){
+	
+	public void showPostorder()
+	{
 		System.out.print("Postorder: ");
 		postorder(root);
 		System.out.println();
