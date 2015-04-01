@@ -1,3 +1,6 @@
+/**
+ * main class to test Queue.java and Node.java
+ */
 class TestQueue {
   public static void main(String []args) {
     Queue x = new Queue();
